@@ -8,5 +8,5 @@ export MEDIA_DATABASE_USER=${MEDIA_DATABASE_USER:-openslides}
 export MEDIA_DATABASE_PASSWORD_FILE=${MEDIA_DATABASE_PASSWORD_FILE:-/run/secrets/postgres_password}
 case $OPENSLIDES_DEVELOPMENT in
     1|on|On|ON|true|True|TRUE)  export PGPASSWORD="openslides";;
-    *)                          export PGPASSWORD="$(cat "$MEDIA_DATABASE_PASSWORD_FILE")";;
+    *)                          PGPASSWORD="$(cat "$MEDIA_DATABASE_PASSWORD_FILE")" && export PGPASSWORD;;
 esac

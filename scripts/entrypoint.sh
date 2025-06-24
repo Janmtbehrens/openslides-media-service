@@ -8,7 +8,7 @@ until pg_isready -h "$MEDIA_DATABASE_HOST" -p "$MEDIA_DATABASE_PORT"; do
     sleep 3
 done
 
-PSQL="psql -1 -h "$MEDIA_DATABASE_HOST" -p "$MEDIA_DATABASE_PORT" -U "$MEDIA_DATABASE_USER" -d "$MEDIA_DATABASE_NAME""
+PSQL="psql -1 -h $MEDIA_DATABASE_HOST -p $MEDIA_DATABASE_PORT -U $MEDIA_DATABASE_USER -d $MEDIA_DATABASE_NAME"
 
 # Create schema in postgresql
 $PSQL -f src/schema.sql
